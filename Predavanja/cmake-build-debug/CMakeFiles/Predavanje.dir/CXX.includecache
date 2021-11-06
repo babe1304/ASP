@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Programiranje/ASP/Predavanja/Point.cpp
+iostream
+-
+math.h
+-
+Point.h
+E:/Programiranje/ASP/Predavanja/Point.h
+
+E:/Programiranje/ASP/Predavanja/Point.h
+
+E:/Programiranje/ASP/Predavanja/primjer.cpp
+iostream
+-
+Point.h
+E:/Programiranje/ASP/Predavanja/Point.h
+

@@ -1,0 +1,3 @@
+"E:\Programi\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Predavanje.dir/objects.a
+E:\Programi\MinGW\bin\ar.exe cr CMakeFiles\Predavanje.dir/objects.a @CMakeFiles\Predavanje.dir\objects1.rsp
+E:\Programi\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\Predavanje.dir/objects.a -Wl,--no-whole-archive -o Predavanje.exe -Wl,--out-implib,libPredavanje.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Predavanje.dir\linklibs.rsp
