@@ -29,5 +29,6 @@ int main(void) {
     ispis(A, n);
 
     delete[] A;
+    
     return 0;
 }

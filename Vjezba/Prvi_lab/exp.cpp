@@ -33,5 +33,7 @@ int main(void) {
         cout << A[i] << endl;
     }
 
+    delete[] A;
+
     return EXIT_SUCCESS;
 }

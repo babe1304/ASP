@@ -27,5 +27,7 @@ int main(void) {
     }
 
     cout << zbrojiKvadrate(A, n);
+
+    delete[] A;
     return EXIT_SUCCESS;
 }
