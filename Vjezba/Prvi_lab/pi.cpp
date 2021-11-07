@@ -20,4 +20,5 @@ int main(void) {
         A[i] = pi(i + 1);
         cout << A[i] << endl;
     }
+    return EXIT_SUCCESS;
 }
