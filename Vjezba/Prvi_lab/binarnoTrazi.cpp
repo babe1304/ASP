@@ -3,9 +3,22 @@
 using namespace std;
 
 template <typename T> int binarnoTrazi(T polje[], int n, T x) {
-    if (polje[n - 1] == x) return n - 1;
-    else if (n <= 0) return -1;
-    else return binarnoTrazi(polje, n - 1, x);
+    int left = 0;
+    int right = n - 1;
+    int mid = n / 2;
+    int index = -1;
+
+    while (right >= left) {
+        mid = (right + left) / 2;
+
+        if (x > polje[mid]) left = mid + 1;
+        else if (x < polje[mid]) right = mid - 1;
+        else {
+            index = mid;
+            break;
+        }
+    }
+    return index;
 }
 
 int main(void) {
