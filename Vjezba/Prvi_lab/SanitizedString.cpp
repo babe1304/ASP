@@ -15,7 +15,7 @@ class SanitizedString {
             for (int i = 0; i < str.size(); i++) {
                 if (str[i] == ' ') {
                     if (str[i - 1] == ' ') {
-                        str.remove(str.begin() + i);
+                        str.erase(str.begin() + i);
                         i--;
                     }
                 }
@@ -25,27 +25,27 @@ class SanitizedString {
         void removeNonAlphaChars() {
             for (int i = 0; i < str.size(); i++) {
                 if (!(isalpha(str[i]) || str[i] == ' ')) {
-                    str.remove(str.begin() + i);
+                    str.erase(str.begin() + i);
                     i--;
                 }
             }
         }
-
-        friend ostream &operator<<(ostream &os, const string str) {
-            os << str;
-            return os;
-        }
+ 
+        friend ostream &operator<<(ostream &os, const SanitizedString &str);
 };
 
-int main(void) {
-    string str;
-    cin >> str;
+ostream &operator<<(ostream &os, const SanitizedString &str) {
+            os << str.str;
+            return os;
+}
 
-    while (str != 'quit') {
-        SanitizedString s1(str);
-        SanitizedString s2(str);
-        cout << s1.removeDuplicateWhitespace() << endl << s2.removeNonAlphaChars();
-    }
+int main(void) {
+    SanitizedString s1("Sunce     nam      dolazi!");
+    SanitizedString s2("M~ir4ko&");
+    s1.removeDuplicateWhitespace();
+    s2.removeNonAlphaChars();
+
+    cout << s1 << endl << s2 << endl;
 
     return EXIT_SUCCESS;
 }
