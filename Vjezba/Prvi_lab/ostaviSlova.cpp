@@ -7,13 +7,10 @@ char *ostaviSlova(string ulaz) {
     char *izlaz = new char[n];
     int b = 0;
 
-    for (int i = 0; i < n; i++) {
-        char znak = ulaz[i];
-        if ((znak >= 'a' && znak <= 'z') || (znak >= 'A' && znak <= 'Z')) {
-            *(izlaz + b++) = znak; 
-        }
+    for (char znak : ulaz) {
+        if (isalpha(znak)) *(izlaz + b++) = znak; 
     }
-    //*(izlaz + b) = '\0';
+    *(izlaz + b) = '\0';
     return izlaz;
 }
 
