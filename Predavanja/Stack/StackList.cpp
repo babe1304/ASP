@@ -10,9 +10,8 @@ template <typename T> class StackList {
 
     public:
         bool Push(T el) {
-           if (top >= MAX) return false;
-           top++;
-           stackArray[top] = el;
+           if (top >= MAX - 1) return false;
+           stackArray[++top] = el;
            return true;
         }
 
@@ -21,6 +20,17 @@ template <typename T> class StackList {
             el = stackArray[top];
             top--;
             return true;
+        }
+
+        T peek() {
+            if (top < 0) throw runtime_error("Stog je prazan");
+            return stackArray[top];
+        }
+
+        void print() {
+            cout << "Vrh -> 🤣 ";
+            for (int i = top; i > -1; i--) cout << stackArray[i] << " ";
+            cout << "-> Dno 👍";
         }
 };
 
@@ -32,6 +42,7 @@ int main(void) {
     s.Push(4);
     s.Push(1);
     
+    s.print();
     int el;
     while (s.Pop(el)) cout << el << " ";
 
