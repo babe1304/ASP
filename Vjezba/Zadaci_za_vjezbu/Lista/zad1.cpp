@@ -12,7 +12,31 @@ template <class T> class List {
    ListElement<T> *head = nullptr;
 
  public:
-   void removeGreaterThan(T item) {
+ 
+   void removeGreaterThan3(T item) {
+      ListElement<T>* curr;
+      ListElement<T>* prev;
+      while (head && head->data > item) {
+         ListElement<T>* tmp = head;
+         head = head->next;
+         delete tmp;
+      }
+      prev = head;
+      curr = head->next;
+      while (curr) {
+         if (curr->data > item) {
+            ListElement<T>* tmp = curr;
+            prev->next = curr->next;
+            curr = curr->next;
+         } else {
+            prev = curr;
+            curr = curr->next;
+         }
+      }
+      
+   }
+
+   void removeGreaterThan1(T item) {
        ListElement<T>* curr;
        while (head && head->data > item) {
            ListElement<T>* tmp = head;
@@ -30,6 +54,21 @@ template <class T> class List {
            }
        }
    } 
+
+   void removeGreaterThan2(T item) {
+      ListElement<T>** p = &head;
+
+      while (*p) {
+         if ((*p)->data > item) {
+            ListElement<T>* tmp = *p;
+            *p = (*p)->next;
+            delete tmp;
+         } else {
+            p = &((*p)->next);
+         }
+      }
+   }
+   
    bool insert(T data) { // umetanje na početak liste
       ListElement<T> *newElement = new (nothrow) ListElement<T>;
       if (newElement == nullptr)
@@ -123,8 +162,36 @@ int main(void) {
     ls.append(1);
     ls.append(2);
     ls.print();
-    ls.removeGreaterThan(3);
+    ls.removeGreaterThan1(3);
     ls.print();
+
+   List<int> ls1;
+    ls1.append(1);
+    ls1.append(2);
+    ls1.append(3);
+    ls1.append(4);
+    ls1.append(5);
+    ls1.append(6);
+    ls1.append(2);
+    ls1.append(1);
+    ls1.append(2);
+    ls1.print();
+    ls1.removeGreaterThan2(3);
+    ls1.print();
+
+    List<int> ls2;
+    ls2.append(1);
+    ls2.append(2);
+    ls2.append(3);
+    ls2.append(4);
+    ls2.append(5);
+    ls2.append(6);
+    ls2.append(2);
+    ls2.append(1);
+    ls2.append(2);
+    ls2.print();
+    ls2.removeGreaterThan3(3);
+    ls2.print();
 
     return EXIT_SUCCESS;
 }
