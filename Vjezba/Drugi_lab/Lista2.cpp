@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+template <typename T> class Lista {
+    template <class X> struct cvor {
+        X data;
+        cvor<X>* next;
+    };
+
+    cvor<T>* head = nullptr;
+
+    public:
+        bool upis(T element) {
+            cvor<T>* newEl = new (nothrow) cvor<T>;
+
+            if (!newEl) return false;
+            newEl->data = element;
+            
+            cvor<T>** p = &head;
+
+            while (*p) p = &((*p)->next);
+
+            newEl->next = *p;
+            *p = newEl;
+            return true;
+        }
+
+        void ispis() {
+            cvor<T>* p = head;
+            while (p) {
+                cout << p->data << " ";
+                p = p->next;
+            }
+        }
+};
+
+int main(void) {
+    Lista<int> lista;
+    lista.upis(4);
+    lista.upis(5);
+    lista.upis(6);
+    lista.upis(3);
+    lista.upis(2);
+    lista.upis(1);
+    lista.ispis();
+
+    return EXIT_SUCCESS;
+}
