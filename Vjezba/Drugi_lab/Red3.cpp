@@ -15,7 +15,7 @@ class Red {
         bool dodaj(int broj) {
             Cvor* newEl = new (nothrow) Cvor;
             if (!newEl) return false;
-            cout << broj << " ";
+            //cout << broj << " ";
             newEl->data = broj;
             newEl->next = nullptr;
             if (!ulaz && !izlaz) {
@@ -31,6 +31,7 @@ class Red {
         bool poljeURed(int polje[], int n) {
             if (n <= 0) return true;
             else if (dodaj(polje[n - 1])) {
+                cout << polje[n - 1] << " ";
                 return poljeURed(polje, n - 1);
             } else return false;
         }
