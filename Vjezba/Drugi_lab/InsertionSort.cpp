@@ -30,8 +30,6 @@ int main(void) {
     srand(0);
     for (int i = 0; i < n; i++) {
         cin >> A[i].mjesto >> A[i].pos_broj;
-        //A[i].mjesto = "Rijeka";
-        //A[i].pos_broj = rand() % 100;
     }
     for (int i = 0; i < n; i++) cout << A[i].mjesto << " " << A[i].pos_broj << " ";
     cout << endl;

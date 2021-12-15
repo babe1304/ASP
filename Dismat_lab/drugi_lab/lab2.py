@@ -69,7 +69,7 @@ graph = Graph(*list(map(int, input("Unesite redom, odvojene razmakom, parametre 
 if (graph.n <= 2 or graph.n >= 12):
     print("Premaleni" if graph.n <= 2 else "Preveliki", "n si upisao!")
 else:
-    iscrpno = graph.iscrpni()
     print(f"Pohlepni algoritam nalazi ciklus duljine {graph.greedy_alg()}")
+    iscrpno = graph.iscrpni()
     print(f"Iscrpni algoritam nalazi ciklus duljine {iscrpno}")
     print("Pohlepni algoritam na ovom grafu", "ne" if iscrpno < graph.greedy_alg() else "","daje optimalno rješenje!")
